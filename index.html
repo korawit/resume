@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Thanawat Wongsuwan (Software Engineer)</title>
+    <!-- Google Fonts: Inter & Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Prompt', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#0d9488',
+                            600: '#0f766e',
+                            700: '#115e59',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Print optimization */
+        @media print {
+            body {
+                background: white !important;
+                color: #0f172a !important;
+                font-size: 11pt;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .resume-sheet {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            a {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans min-h-screen py-6 sm:py-10 transition-colors duration-200 antialiased selection:bg-teal-500 selection:text-white">
+
+    <!-- Floating Control Panel -->
+    <nav class="max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between no-print">
+        <div class="flex items-center gap-2">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-900/60 dark:text-teal-300">
+                <span class="w-1.5 h-1.5 mr-1.5 rounded-full bg-teal-500 animate-pulse"></span>
+                Open to Work
+            </span>
+        </div>
+        <div class="flex items-center gap-3">
+            <!-- Toggle Theme Button -->
+            <button id="themeToggle" class="p-2 rounded-xl bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-teal-500 shadow-sm transition-all text-sm flex items-center gap-1.5" title="Toggle Dark/Light Mode">
+                <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+                <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                <span class="text-xs hidden sm:inline">Theme</span>
+            </button>
+            <!-- Copy Contact Button -->
+            <button id="copyEmailBtn" class="px-3 py-2 rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-teal-500 shadow-sm transition-all text-xs sm:text-sm font-medium flex items-center gap-2">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span>Copy Email</span>
+            </button>
+            <!-- Print to PDF Button -->
+            <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white shadow-md hover:shadow-teal-500/20 transition-all text-xs sm:text-sm font-medium flex items-center gap-2">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>Print / Save PDF</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Resume Card -->
+    <main class="resume-sheet max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 lg:p-12 transition-colors">
+        
+        <!-- Header Section -->
+        <header class="border-b border-slate-200 dark:border-slate-800 pb-8">
+            <div class="flex flex-col-reverse md:flex-row md:items-center justify-between gap-6">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
+                        Thanawat Wongsuwan
+                    </h1>
+                    <p class="text-lg sm:text-xl font-medium text-teal-600 dark:text-teal-400 mt-1">
+                        Senior Full-Stack Software Engineer
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 max-w-2xl leading-relaxed">
+                        Results-driven Software Engineer with 5+ years of experience designing scalable microservices, cloud-native distributed architectures, and high-throughput web applications. Proven track record in TypeScript, Go, React, and AWS cloud environments, delivering resilient systems while mentoring high-performing engineering teams.
+                    </p>
+                </div>
+                <!-- Profile Image Placeholder -->
+                <div class="flex-shrink-0 self-center md:self-start">
+                    <div class="relative group">
+                        <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-tr from-teal-600 to-cyan-500 p-1 shadow-lg">
+                            <img 
+                                src="https://placehold.co/300x300/115e59/ffffff?text=Your+Photo" 
+                                alt="Thanawat Wongsuwan Photo" 
+                                class="w-full h-full object-cover rounded-[14px] bg-slate-100 dark:bg-slate-800 border border-slate-200/40 dark:border-slate-700/50"
+                                onerror="this.onerror=null; this.src='https://placehold.co/300x300/0f766e/ffffff?text=Photo';"
+                            />
+                        </div>
+                        <span class="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-slate-900 rounded-full" title="Active"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-100 dark:border-slate-800/80 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                <a href="mailto:thanawat.dev@example.com" class="flex items-center gap-2 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                    <i data-lucide="mail" class="w-4 h-4 text-teal-600 flex-shrink-0"></i>
+                    <span class="truncate">thanawat.dev@example.com</span>
+                </a>
+                <a href="tel:+66812345678" class="flex items-center gap-2 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                    <i data-lucide="phone" class="w-4 h-4 text-teal-600 flex-shrink-0"></i>
+                    <span>+66 81 234 5678</span>
+                </a>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-teal-600 flex-shrink-0"></i>
+                    <span>Bangkok, Thailand (Hybrid / Remote)</span>
+                </div>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4 text-teal-600 flex-shrink-0"></i>
+                    <span>github.com/thanawat-dev</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Technical Skills Section -->
+        <section class="py-8 border-b border-slate-200 dark:border-slate-800">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 flex items-center gap-2 mb-4">
+                <i data-lucide="cpu" class="w-4 h-4"></i> Technical Skills
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <!-- Languages -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800">
+                    <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 block mb-2">Programming Languages</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">TypeScript</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">JavaScript (ES6+)</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Go (Golang)</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Python</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">SQL</span>
+                    </div>
+                </div>
+                <!-- Frontend & Backend -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800">
+                    <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 block mb-2">Frameworks & Libraries</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">React</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Next.js</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Node.js / Express</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">NestJS</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Tailwind CSS</span>
+                    </div>
+                </div>
+                <!-- Cloud & DevOps -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800">
+                    <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 block mb-2">Cloud & DevOps</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Docker</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Kubernetes</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">AWS (ECS, S3, RDS, Lambda)</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">CI/CD (GitHub Actions)</span>
+                    </div>
+                </div>
+                <!-- Databases & Architecture -->
+                <div class="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800">
+                    <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 block mb-2">Databases & Architecture</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">PostgreSQL</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">MongoDB</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Redis</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">Kafka</span>
+                        <span class="px-2.5 py-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium">RESTful & GraphQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="py-8 border-b border-slate-200 dark:border-slate-800">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 flex items-center gap-2 mb-6">
+                <i data-lucide="briefcase" class="w-4 h-4"></i> Work Experience
+            </h2>
+            <div class="space-y-8">
+                <!-- Job 1 -->
+                <div class="relative pl-6 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-800">
+                    <span class="absolute -left-[5px] top-1.5 w-3 h-3 rounded-full border-2 border-teal-500 bg-white dark:bg-slate-900"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Senior Software Engineer</h3>
+                        <span class="text-xs font-medium text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/50 px-2 py-0.5 rounded">2022 - Present</span>
+                    </div>
+                    <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">TechSphere Solutions Co., Ltd. · Bangkok, Thailand</p>
+                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1.5 list-disc list-outside ml-4 leading-relaxed">
+                        <li>Architected and built a high-throughput Payment Gateway using Go and Redis, processing over 1.5M transactions daily with 99.98% uptime SLA.</li>
+                        <li>Spearheaded monolithic decomposition into Kubernetes-managed microservices on AWS EKS, resulting in a 28% reduction in cloud infrastructure costs.</li>
+                        <li>Established end-to-end CI/CD automation with GitHub Actions, slashing release deployment cycles from 2 business days down to under 20 minutes.</li>
+                        <li>Mentored 4 junior engineers on Clean Architecture, domain-driven design, and Test-Driven Development (TDD), boosting unit test coverage to 85%+.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative pl-6 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-800">
+                    <span class="absolute -left-[5px] top-1.5 w-3 h-3 rounded-full border-2 border-slate-400 dark:border-slate-600 bg-white dark:bg-slate-900"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Full-Stack Developer</h3>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">2020 - 2022</span>
+                    </div>
+                    <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">InnovateX Digital Labs · Bangkok, Thailand</p>
+                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1.5 list-disc list-outside ml-4 leading-relaxed">
+                        <li>Developed responsive, SEO-optimized e-commerce platforms using React, Next.js, and Redux Toolkit, lifting Google Lighthouse performance scores from 52 to 94.</li>
+                        <li>Constructed RESTful backend APIs and message-driven worker queues utilizing Node.js, Express, BullMQ, and PostgreSQL.</li>
+                        <li>Collaborated closely with cross-functional Agile teams to consistently deliver core product releases ahead of sprint targets with a 95%+ on-time rate.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative pl-6">
+                    <span class="absolute -left-[5px] top-1.5 w-3 h-3 rounded-full border-2 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Junior Web Developer</h3>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">2019 - 2020</span>
+                    </div>
+                    <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">AppCraft Studio · Nonthaburi, Thailand</p>
+                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1.5 list-disc list-outside ml-4 leading-relaxed">
+                        <li>Contributed to customer-facing web portals and integrated CRM webhooks utilizing Vue.js, PHP, and Laravel.</li>
+                        <li>Optimized complex SQL queries, refactored database migrations, and resolved production bugs across legacy modules.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="py-8 border-b border-slate-200 dark:border-slate-800">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 flex items-center gap-2 mb-6">
+                <i data-lucide="folder-git-2" class="w-4 h-4"></i> Featured Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Project 1 -->
+                <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-teal-500/60 dark:hover:border-teal-500/60 transition-all bg-slate-50/50 dark:bg-slate-800/20">
+                    <div class="flex items-start justify-between gap-2 mb-2">
+                        <h3 class="font-semibold text-slate-900 dark:text-white text-base">Real-time Logistics Tracker</h3>
+                        <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-teal-600 dark:hover:text-teal-400"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                        Real-time fleet tracking system powered by WebSockets and Redis Pub/Sub, rendering dynamic vehicle location telemetry for 10,000+ concurrent active IoT units.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">Go</span>
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">Next.js</span>
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">Redis</span>
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:border-teal-500/60 dark:hover:border-teal-500/60 transition-all bg-slate-50/50 dark:bg-slate-800/20">
+                    <div class="flex items-start justify-between gap-2 mb-2">
+                        <h3 class="font-semibold text-slate-900 dark:text-white text-base">FinTech Multi-Tenant Core</h3>
+                        <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-teal-600 dark:hover:text-teal-400"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                        Cloud-native multi-tenant digital wallet engine implementing Row-Level Security (RLS) data isolation and cryptographic audit trails for compliance.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">NestJS</span>
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">PostgreSQL</span>
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">AWS KMS</span>
+                        <span class="px-2 py-0.5 bg-slate-200/70 dark:bg-slate-800 text-[11px] rounded text-slate-700 dark:text-slate-300 font-mono">Jest</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications (2-Column) -->
+        <section class="pt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Education -->
+            <div>
+                <h2 class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 flex items-center gap-2 mb-4">
+                    <i data-lucide="graduation-cap" class="w-4 h-4"></i> Education
+                </h2>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="font-semibold text-slate-900 dark:text-white text-sm">B.S. in Computer Science</h3>
+                            <span class="text-xs text-slate-500">2015 - 2019</span>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">King Mongkut's University of Technology Thonburi (KMUTT)</p>
+                        <p class="text-xs text-teal-600 dark:text-teal-400 mt-1 font-medium">Second Class Honors (GPA 3.42 / 4.00)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div>
+                <h2 class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 flex items-center gap-2 mb-4">
+                    <i data-lucide="award" class="w-4 h-4"></i> Certifications
+                </h2>
+                <div class="space-y-3 text-xs">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-white block">AWS Certified Solutions Architect – Associate</span>
+                            <span class="text-slate-500">Amazon Web Services</span>
+                        </div>
+                        <span class="text-slate-400">2023</span>
+                    </div>
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-white block">Certified Kubernetes Application Developer (CKAD)</span>
+                            <span class="text-slate-500">Cloud Native Computing Foundation (CNCF)</span>
+                        </div>
+                        <span class="text-slate-400">2022</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Languages Note -->
+        <footer class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-2">
+            <div>
+                <span>Languages: Thai (Native), English (Professional Working Proficiency - TOEIC 820)</span>
+            </div>
+            <div class="text-[11px]">
+                Last updated: 2026
+            </div>
+        </footer>
+    </main>
+
+    <!-- Simple Notification Toast (No alert() used) -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm font-medium border border-slate-700 dark:border-slate-200">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-teal-400 dark:text-teal-600"></i>
+            <span id="toastMessage">Email address copied to clipboard!</span>
+        </div>
+    </div>
+
+    <!-- Interactive Script -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check user preferences or default
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            lucide.createIcons();
+        });
+
+        // Toast Helper Function
+        function showToast(text) {
+            const toast = document.getElementById('toastNotification');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.textContent = text;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Copy Email with fallback logic (avoiding navigator clipboard iframe restrictions)
+        document.getElementById('copyEmailBtn').addEventListener('click', () => {
+            const email = 'thanawat.dev@example.com';
+            const tempInput = document.createElement('textarea');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast('Email address copied to clipboard: ' + email);
+            } catch (err) {
+                showToast('Unable to copy automatically');
+            }
+            document.body.removeChild(tempInput);
+        });
+    </script>
+</body>
+</html>
